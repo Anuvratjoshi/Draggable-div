@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Draggable Element</title>
+</head>
+
+<body>
+    <div class="draggable">
+        <div class="header">Drag me!</div>
+        <div class="content">I am a draggable element</div>
+      </div>
+      
+
+    <script>
+        const header = document.querySelector('.header');
+
+        let startX, startY;
+
+        header.addEventListener('mousedown', e => {
+            startX = e.clientX;
+            startY = e.clientY;
+
+            document.addEventListener('mousemove', onMouseMove);
+        });
+
+        function onMouseMove(e) {
+            const distanceX = e.clientX - startX;
+            const distanceY = e.clientY - startY;
+
+            const draggable = header.parentNode;
+            draggable.style.top = `${draggable.offsetTop + distanceY}px`;
+            draggable.style.left = `${draggable.offsetLeft + distanceX}px`;
+
+            startX = e.clientX;
+            startY = e.clientY;
+        }
+
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', onMouseMove);
+        });
+
+    </script>
+</body>
+
+</html>

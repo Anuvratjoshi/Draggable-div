@@ -1,0 +1,32 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:aqua;
+
+}
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    background: white;
+    transform: translate(-50%,50%);
+} */
+
+.draggable {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+}
+
+.header {
+  cursor: move;
+  background-color: #aaa;
+  padding: 10px;
+}
